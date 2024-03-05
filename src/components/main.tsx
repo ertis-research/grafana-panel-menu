@@ -1,105 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PanelProps } from '@grafana/data';
-import { SimpleOptions } from 'types';
-// import { css, cx } from '@emotion/css';
-// import { useStyles2, useTheme2, CustomScrollbar } from '@grafana/ui';
+import { Item, Options } from 'utils/types';
 
-interface Props extends PanelProps<SimpleOptions> {}
-
-// const getStyles = () => {
-//   return {
-//     wrapper: css`
-//       font-family: Open Sans;
-//       position: relative;
-//     `,
-//     svg: css`
-//       position: absolute;
-//       top: 0;
-//       left: 0;
-//     `,
-//     textBox: css`
-//       position: absolute;
-//       bottom: 0;
-//       left: 0;
-//       padding: 10px;
-//     `,
-//   };
-// };
+interface Props extends PanelProps<Options> {}
 
 export const Main: React.FC<Props> = ({ options, data, width, height }) => {
-  const dashboards = options.dashboard;
   
-  const dashBoardsJSON: { [s: string]: any; } = [];
+  const [items, setItems] = useState<Item[]>([])
+
+  useEffect(() => {
+    if(options && options.items) {
+      setItems(options.items)
+    }
+  }, [options])
   
-  dashboards.forEach( function(dashboardCurr) {
-      dashBoardsJSON.push(JSON.stringify(dashboardCurr));
-  });
 
-  // const theme = useTheme2();
-  // const styles = useStyles2(getStyles);
-
-
-  // let divGrande = document.createElement("div");
-  //   for(let i = 0; i < dashboards.length; i++){
-  //     let div = document.createElement("div");
-  //     let texto = document.createTextNode("NOMBRE: " + dashboards[i].name + " DIRECCION: " + dashboards[i].url + " ICONO: " + dashboards[i].icon);
-  //     div.appendChild(texto);
-  //     divGrande.appendChild(div);
-  //   }
-
-  // let cosas = [];
-  // const getListTags = dashboards.forEach(function(dashboard, key) {
-  //   cosas.push(
-  //     <div className="row">
-  //       <div className="col-md-4">
-  //         <div className="card">
-  //           <div className="card-body">
-  //             <h5 className="card-title">{dashboard.name}</h5>
-  //             <p className="card-text">{dashboard.url}</p>
-  //             <a href="#" className="btn btn-primary">{dashboard.icon}</a>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // });
-/*
-  const getListTags = () => {
-    let cosas: JSX.Element[] = [];
-    dashboards.forEach(function(dashboard, key) {
-      cosas.push(
-        <div className="col">
-          <a href={dashboard.url}>
-            <img src={dashboard.icon} width="50"></img>
-            <p>{dashboard.name}</p>
+  const getList = items.map((item: Item, idx: number) => {
+      return (
+        <div key={idx} style={{ display: 'flex', alignItems: 'center'}}>
+          <a href={item.url} style={{width: '100%', height: '100%', padding: '0.2em'}}>
+            <img src={item.icon} alt={item.name} style={{ width: '100%', height:'calc(100% - 2em)', objectFit: 'contain', display: 'block', margin: '0 auto' }}/>
+            <h5 style={{ overflow: 'hidden', inlineSize: 'min-content', overflowWrap: 'break-word', textAlign: 'center', width: '100%', height: '1.5em', marginTop: '0.5em', lineHeight: '1.5em' }}>
+              {item.name}
+            </h5>
           </a>
         </div>
-      );
-    });
-
-    return cosas;
-      
-  }*/
-
-  const getListTags2 = 
-    dashboards.map(function(dashboard) {
-      return (
-        <a href={dashboard.url}>
-          <div className="col">
-            <img src={dashboard.icon} width="100%" ></img>
-            <p>{dashboard.name}</p>
-          </div>
-        </a>
-        
       )
     })
       
-
-
   return (
-    <div id="demo" className='row container verticalDiv' style={{ width: width, height: height }}>
-      <center>{getListTags2}</center>
-      
+    <div id="demo" style={{ width: width, height: height, overflowY: 'auto', justifyContent: 'center', alignContent: 'center' }}>
+      <div style={{ width: width-10, height: height-10, display: 'block', margin: '0 auto' }}>
+        <div className='main-grid' style={{width: '100%', height: '100%'}}>
+        {getList}
+        </div>
+      </div>
     </div>
   );
 };

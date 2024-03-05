@@ -1,13 +1,13 @@
 type SeriesSize = 'sm' | 'md' | 'lg';
 
-export interface IDashboard {
+export interface Item {
   icon: string
   name: string
   url: string
 }
 
-export interface SimpleOptions {
-  dashboard: IDashboard[];
+export interface Options {
+  items: Item[];
   text: string;
   showSeriesCount: boolean;
   seriesCountSize: SeriesSize;

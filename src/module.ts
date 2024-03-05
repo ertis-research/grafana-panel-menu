@@ -1,18 +1,18 @@
 import { PanelPlugin } from '@grafana/data';
-import { SimpleOptions } from './types';
+import {Options } from './utils/types';
 import { Main } from './components/main';
-import { DashboardEditor } from './components/editors/dashboardEditor';
+import { ItemsEditor } from './components/editors/itemsEditor';
 import './css/bootstrap-grid.css';
 import './css/grid.css';
 import './css/others.css';
 
-export const plugin = new PanelPlugin<SimpleOptions>(Main).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin<Options>(Main).setPanelOptions((builder) => {
   return builder
     .addCustomEditor({
-      path : 'dashboard',
-      id: 'dashboards',
-      name : 'Dashboards',
-      editor : DashboardEditor
+      path : 'items',
+      id: 'items',
+      name : 'Items',
+      editor : ItemsEditor
     })
     .addRadio({
       path: 'seriesCountSize',
