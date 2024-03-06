@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   grafana:
-    container_name: 'ertis-gediermenu-panel'
+    container_name: 'ertis-links-menu-panel'
     build:
       context: ./.config
       args:
@@ -10,5 +10,5 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ./dist:/var/lib/grafana/plugins/ertis-gediermenu-panel
+      - ./dist:/var/lib/grafana/plugins/ertis-links-menu-panel
       - ./provisioning:/etc/grafana/provisioning

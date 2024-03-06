@@ -11,7 +11,7 @@ export const Main: React.FC<Props> = ({ options, data, width, height }) => {
   const [items, setItems] = useState<Item[]>([])
 
   const cellHeight = (options.cellHeightMode === LayoutMode.auto) ? '100px' : ('calc(' + options.cellHeightValue + 'px + 2em)')
-  const celWidth = (options.cellWidthMode === LayoutMode.auto) ? '2vw' : (options.cellWidthValue + 'px')
+  const celWidth = (options.cellWidthMode === LayoutMode.auto) ? '90px' : (options.cellWidthValue + 'px')
 
   const columnSize = (options.gridMode === GridMode.fill) ? 'minmax(' + celWidth + ', 1fr)' : celWidth
   const rowSize = (options.gridMode === GridMode.fill) ? 'minmax(' + cellHeight + ', 1fr)' : cellHeight

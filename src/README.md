@@ -1,5 +1,5 @@
 <!-- This README file is going to be the one displayed on the Grafana.com website for your plugin -->
 
-# Gedier Menu
+# Links menu
 
-Menu para la aplicacion de gedier
+Links menu panel

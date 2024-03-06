@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Gedier Menu",
-  "id": "ertis-gediermenu-panel",
+  "name": "Links menu",
+  "id": "ertis-links-menu-panel",
   "info": {
     "keywords": ["panel"],
-    "description": "Menu para la aplicacion de gedier",
+    "description": "Links menu",
     "author": {
-      "name": "Ertis"
+      "name": "ERTIS"
     },
     "logos": {
       "small": "img/logo.svg",

@@ -1,7 +1,7 @@
 {
-  "name": "gedier-menu",
+  "name": "links-menu-panel",
   "version": "1.0.0",
-  "description": "Menu para la aplicacion de gedier",
+  "description": "Links menu panel",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
