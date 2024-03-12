@@ -26,30 +26,6 @@ This Grafana plugin allows you to create a customizable menu with icons, links, 
 4. Customize additional settings such as dark mode support, layout, and styling as needed.
 5. Save your changes and enjoy your enhanced navigation experience! 🛠️
 
-## Example Configuration
-
-```json
-{
-  "darkMode": true,
-  "items": [
-    {
-      "icon": "fa-home",
-      "label": "Home",
-      "link": "/dashboard/home"
-    },
-    {
-      "icon": "fa-chart-bar",
-      "label": "Metrics",
-      "link": "/dashboard/metrics"
-    },
-    {
-      "icon": "fa-cogs",
-      "label": "Settings",
-      "link": "/dashboard/settings"
-    }
-  ]
-}
-
 
 
 # Grafana panel plugin template
