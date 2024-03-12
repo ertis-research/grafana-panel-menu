@@ -3,6 +3,12 @@ export enum LayoutMode {
   fixed = 'fixed'
 }
 
+export enum DarkIconMode {
+  auto = 'auto',
+  custom = 'custom',
+  disabled = 'disabled'
+}
+
 export enum ImageMode {
   fill = 'fill',
   contain = 'contain',
@@ -20,6 +26,8 @@ export interface Item {
   name: string
   url: string
   active: boolean
+  darkMode: DarkIconMode
+  darkIcon: string
 }
 
 export interface Options {
@@ -36,6 +44,7 @@ export interface Options {
   imageMode: ImageMode;
   gridMode: GridMode;
   gap: number;
+  fontSize: number;
 }
 
 export const LayoutModeSetting = [
@@ -51,4 +60,6 @@ export const LayoutModeSetting = [
 
 export const ImageModeSetting = Object.values(ImageMode).map((img: ImageMode) => { return {value: img, label: img} })
 export const GridModeSetting = Object.values(GridMode).map((mode: GridMode) => { return {value: mode, label: mode} })
+export const DarkIconModeSetting = Object.values(DarkIconMode).map((mode: DarkIconMode) => { return {value: mode, label: mode} })
+
 

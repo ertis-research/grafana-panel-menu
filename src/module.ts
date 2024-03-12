@@ -107,6 +107,15 @@ export const plugin = new PanelPlugin<Options>(Main).setPanelOptions((builder) =
         min: 0,
         integer: true
       }
+    })
+    .addNumberInput({
+      path: 'fontSize',
+      name: 'Font size (px)',
+      defaultValue: 16,
+      settings: {
+        min: 0,
+        integer: true
+      }
     });
 });
 

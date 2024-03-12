@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { PanelProps } from '@grafana/data';
-import { GridMode, Item, LayoutMode, Options } from 'utils/types';
+import { DarkIconMode, GridMode, Item, LayoutMode, Options } from 'utils/types';
 import { css } from '@emotion/css';
 import { useStyles2 } from '@grafana/ui';
+import { config } from '@grafana/runtime';
 
 interface Props extends PanelProps<Options> { }
 
 export const Main: React.FC<Props> = ({ options, data, width, height }) => {
 
+  const isDarkMode = config.theme2.isDark
   const [items, setItems] = useState<Item[]>([])
 
   const cellHeight = (options.cellHeightMode === LayoutMode.auto) ? '100px' : ('calc(' + options.cellHeightValue + 'px + 2em)')
@@ -85,6 +87,7 @@ export const Main: React.FC<Props> = ({ options, data, width, height }) => {
         height: 1.5em;
         margin-top: 0.5em;
         line-height: 1.5em;
+        font-size: ${options.fontSize}px;
       `,
       textNoImage: css`
         overflow: hidden;
@@ -99,6 +102,7 @@ export const Main: React.FC<Props> = ({ options, data, width, height }) => {
 
   let styles = useStyles2(getStyles)
 
+
   useEffect(() => {
     if (options && options.items) {
       setItems(options.items)
@@ -112,7 +116,7 @@ export const Main: React.FC<Props> = ({ options, data, width, height }) => {
       <div key={idx} className={(item.active) ? styles.mainCellActive : styles.mainCell}>
         <a href={item.url} className={styles.cellContent}>
           {(hasIcon) ?
-            <img src={item.icon} alt={item.url} className={styles.image} /> : <span></span>}
+            <img src={(isDarkMode && item.darkMode === DarkIconMode.custom) ? item.darkIcon : item.icon } alt={item.url} className={styles.image} style={{filter: (isDarkMode && item.darkMode === DarkIconMode.auto) ? 'invert(100%)' : 'invert(0%)'}} /> : <span></span>}
           {(hasText) ?
             <h5 className={(hasIcon) ? styles.text : styles.textNoImage}>{item.name}</h5> : <span></span>}
         </a>
