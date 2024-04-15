@@ -7,7 +7,8 @@
     "keywords": ["panel"],
     "description": "Links menu",
     "author": {
-      "name": "ERTIS"
+      "name": "ERTIS",
+      "url": "https://ertis.uma.es/"
     },
     "logos": {
       "small": "img/logo.svg",

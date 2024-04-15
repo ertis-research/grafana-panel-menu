@@ -1,8 +1,6 @@
 # Grafana Icon Menu Plugin
 
-![Plugin Logo](https://placekitten.com/200/200)
-
-This Grafana plugin allows you to create a customizable menu with icons, links, and dark mode support. It's perfect for enhancing the navigation experience within your Grafana dashboards. 🖼️🔗🌓
+This Grafana plugin allows you to create a customizable menu with icons, links, and dark mode support. It's perfect for enhancing the navigation experience within your Grafana dashboards. Although it was originally designed as an extension to [OpenTwins](https://github.com/ertis-research/opentwins), our digital twin platform, it has no dependency on it, making it a versatile tool suitable for a variety of scenarios.
 
 ## Features
 
